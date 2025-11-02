@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://exlfjrsql2fw"]
+[gd_scene load_steps=13 format=3 uid="uid://exlfjrsql2fw"]
 
+[ext_resource type="Script" uid="uid://bjs48hyrufm2s" path="res://scenes/town/trade/trade.gd" id="1_1e65h"]
 [ext_resource type="Texture2D" uid="uid://dhmyuc14ebn1e" path="res://assets/backgrounds/MarketBackground.png" id="1_sh6sl"]
 [ext_resource type="Texture2D" uid="uid://ciqv4m2ttxndr" path="res://assets/ui/town/tavern/TradeMenuEmpty.png" id="2_httn2"]
 [ext_resource type="Texture2D" uid="uid://bp18w77y1hy64" path="res://assets/ui/town/tavern/FoodTradeButton.png" id="3_1e65h"]
@@ -27,6 +28,7 @@ font_color = Color(1, 0.8862745, 0.02745098, 1)
 [node name="Trade" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_1e65h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -116,3 +118,5 @@ offset_right = 230.0
 offset_bottom = 160.0
 text = "500g"
 label_settings = SubResource("LabelSettings_jkeck")
+
+[connection signal="pressed" from="CanvasLayer/MenuBackground/Leave" to="." method="_on_leave_pressed"]

@@ -16,6 +16,7 @@ func _unhandled_input(event):
 		
 func _on_trade_button_pressed():
 	print("Pressed trade button")
+	$"../../GameUI".show_trade_ui()
 	
 func _on_shipyard_button_pressed():
 	print("Pressed shipyard button")
