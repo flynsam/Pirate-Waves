@@ -28,4 +28,6 @@ func _on_quests_button_pressed():
 
 func _on_leave_button_pressed():
 	print("Pressed leave button")
+	$"../../PlayerBoat/AudioStreamPlayer2D".play()
 	queue_free()
+	

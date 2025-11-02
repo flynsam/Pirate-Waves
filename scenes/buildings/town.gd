@@ -25,3 +25,4 @@ func _on_enter_zone_body_entered(body):
 		$Building.play()
 		await get_tree().create_timer(0.5).timeout
 		$"../../GameUI".show_town_ui()
+		$"../../PlayerBoat/AudioStreamPlayer2D".stop()
