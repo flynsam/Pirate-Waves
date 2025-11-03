@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dl6q2vamwg6n6"]
+
+[ext_resource type="Shader" uid="uid://cyplw60ogb2yx" path="res://scenes/town/tavern/select.gdshader" id="1_tmsjo"]
+
+[resource]
+shader = ExtResource("1_tmsjo")
+shader_parameter/glow_color = Color(1, 0.9, 0.5, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/radius = 0.35
+shader_parameter/softness = 0.45
+shader_parameter/pulse_speed = 0.6
+shader_parameter/pulse_amount = 0.25

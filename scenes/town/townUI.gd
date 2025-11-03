@@ -23,6 +23,7 @@ func _on_shipyard_button_pressed():
 
 func _on_tavern_button_pressed():
 	print("Pressed tavern button")
+	$"../../GameUI".show_tavern_ui()
 
 func _on_quests_button_pressed():
 	print("Pressed quests button")

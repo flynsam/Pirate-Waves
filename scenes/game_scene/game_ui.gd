@@ -12,3 +12,8 @@ func show_trade_ui():
 	print("Showing trade UI")
 	trade_ui = preload("res://scenes/town/trade/Trade.tscn").instantiate()
 	add_child(trade_ui)
+
+func show_tavern_ui():
+	print("Showing tavern UI")
+	trade_ui = preload("res://scenes/town/tavern/Tavern.tscn").instantiate()
+	add_child(trade_ui)
