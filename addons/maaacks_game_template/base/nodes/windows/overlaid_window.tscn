@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gdbfi0172ji"]
+[gd_scene load_steps=4 format=3 uid="uid://6gdbfi0172ji"]
 
 [ext_resource type="Script" uid="uid://xfugmpspqbcc" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.gd" id="1_euyj1"]
 [ext_resource type="PackedScene" uid="uid://b2s0kvrx8r2kq" path="res://addons/maaacks_game_template/base/nodes/windows/window_container.tscn" id="2_pmk27"]
+[ext_resource type="FontFile" uid="uid://bmfleyxdqpc0r" path="res://assets/fonts/pixel_pirate.ttf" id="3_uemfq"]
 
 [node name="OverlaidWindow" instance=ExtResource("2_pmk27")]
 process_mode = 0
@@ -9,3 +10,12 @@ script = ExtResource("1_euyj1")
 pauses_game = false
 makes_mouse_visible = true
 exclusive = true
+
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("3_uemfq")
+
+[node name="DescriptionLabel" parent="ContentContainer/BoxContainer/DescriptionMargin" index="0"]
+theme_override_fonts/normal_font = ExtResource("3_uemfq")
+
+[node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+theme_override_fonts/font = ExtResource("3_uemfq")
