@@ -45,6 +45,13 @@ func _physics_process(delta):
 		current_speed -= deceleration * delta
 	else:
 		current_speed = lerp(current_speed, 0.0, 0.02)
+		
+	if Input.is_action_just_pressed("fire_left"):
+		print("fire left!")
+		fire_left_guns()
+	if Input.is_action_just_pressed("fire_right"):
+		print("fire right!")
+		fire_right_guns()
 
 	current_speed = clamp(current_speed, -reverse_speed, max_speed)
 	velocity = (FORWARD_BASE * current_speed).rotated(rotation)
@@ -58,3 +65,19 @@ func update_guns_visibility():
 	for i in range(total):
 		var child := guns_node.get_child(i)
 		child.visible = (i < guns)
+		
+func fire_left_guns():
+	var guns_node := $Guns
+
+	for i in range(1, guns + 1):
+		if i % 2 == 1:
+			var gun = guns_node.get_node("Gun%d" % i)
+			gun.fire()
+
+func fire_right_guns():
+	var guns_node := $Guns
+
+	for i in range(1, guns + 1):
+		if i % 2 == 0:
+			var gun = guns_node.get_node("Gun%d" % i)
+			gun.fire()
