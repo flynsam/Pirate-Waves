@@ -11,9 +11,12 @@ extends CharacterBody2D
 @export var guns := 2
 @export var knots := 0
 @export var morale := 0
-
+@export var left_fire_cooldown := 3
+@export var right_fire_cooldown := 3
 # Let us toggle control in the editor or from another script
 @export var controls_enabled := true
+var can_fire_left := true
+var can_fire_right := true
 
 const FORWARD_BASE := Vector2.UP
 
@@ -67,17 +70,33 @@ func update_guns_visibility():
 		child.visible = (i < guns)
 		
 func fire_left_guns():
-	var guns_node := $Guns
+	if not can_fire_left:
+		return
 
+	can_fire_left = false
+
+	var guns_node := $Guns
 	for i in range(1, guns + 1):
 		if i % 2 == 1:
 			var gun = guns_node.get_node("Gun%d" % i)
 			gun.fire()
 
-func fire_right_guns():
-	var guns_node := $Guns
+	# start cooldown timer
+	var t := get_tree().create_timer(left_fire_cooldown)
+	t.timeout.connect(func(): can_fire_left = true)
 
+func fire_right_guns():
+	if not can_fire_right:
+		return
+
+	can_fire_right = false
+
+	var guns_node := $Guns
 	for i in range(1, guns + 1):
 		if i % 2 == 0:
 			var gun = guns_node.get_node("Gun%d" % i)
 			gun.fire()
+
+	# start cooldown timer
+	var t := get_tree().create_timer(right_fire_cooldown)
+	t.timeout.connect(func(): can_fire_right = true)
