@@ -11,6 +11,7 @@ func _process(_dt: float) -> void:
 	if not is_instance_valid(player):
 		return
 	update_ship_marker()
+	update_sail_stats()
 
 func update_ship_marker() -> void:
 	var world_pos: Vector2 = player.global_position
@@ -30,3 +31,9 @@ func update_ship_marker() -> void:
 	)
 
 	ship_icon.position = map_ui_pos
+
+func update_sail_stats():
+	$SailStats/VBoxContainer/HP.text = "HP:                   %d" % player.hp
+	$SailStats/VBoxContainer/Guns.text = "Guns:            %d" % player.guns
+	$SailStats/VBoxContainer/Knots.text = "Knots:        %d" % player.knots
+	$SailStats/VBoxContainer/Morale.text = "Morale:     %d" % player.morale

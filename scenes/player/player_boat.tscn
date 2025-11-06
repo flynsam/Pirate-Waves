@@ -31,6 +31,9 @@ animations = [{
 
 [node name="PlayerBoat" type="CharacterBody2D"]
 script = ExtResource("1_tfbt8")
+reverse_speed = 61.37
+gold = 1
+morale = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.1415927

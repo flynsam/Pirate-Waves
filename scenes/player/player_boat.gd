@@ -6,6 +6,12 @@ extends CharacterBody2D
 @export var reverse_speed := 60.0
 @export var turn_speed := 2.0
 
+@export var hp := 100
+@export var gold := 0
+@export var guns := 2
+@export var knots := 0
+@export var morale := 0
+
 # Let us toggle control in the editor or from another script
 @export var controls_enabled := true
 
