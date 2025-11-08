@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu6c72fyiba2s"]
+[gd_scene load_steps=9 format=3 uid="uid://cu6c72fyiba2s"]
 
 [ext_resource type="Texture2D" uid="uid://is5yutlhkb27" path="res://assets/ui/map/MapBackground.png" id="1_cm2e8"]
-[ext_resource type="Texture2D" uid="uid://det87dh4q513y" path="res://assets/ui/map/MapButton.png" id="1_ditpx"]
 [ext_resource type="Texture2D" uid="uid://bbrjt84hpvqry" path="res://assets/ui/map/Map.png" id="1_ij4mi"]
 [ext_resource type="Script" uid="uid://bjg7ug8bx7lau" path="res://scenes/game_scene/world/map_ui.gd" id="1_wknfc"]
 [ext_resource type="Script" uid="uid://b2u4mh42rrys" path="res://scenes/game_scene/world/map_button.gd" id="2_ydqjq"]
+[ext_resource type="Texture2D" uid="uid://bkn42h3dhpmfk" path="res://assets/ui/map/stats.png" id="5_8qdxx"]
 [ext_resource type="Texture2D" uid="uid://h56m310r62on" path="res://assets/boat/boat.png" id="6_eddq1"]
-[ext_resource type="Texture2D" uid="uid://ddkwhejoo8w10" path="res://assets/ui/map/BlankModal.png" id="7_eddq1"]
+[ext_resource type="Texture2D" uid="uid://bjjsk5ie5xwm1" path="res://assets/ui/map/map_closed.png" id="8_8qdxx"]
+[ext_resource type="Texture2D" uid="uid://dau46jgypfq1d" path="res://assets/ui/map/map_open.png" id="9_y81kt"]
 
 [node name="WorldUI" type="CanvasLayer"]
 
@@ -40,16 +41,6 @@ offset_bottom = 1192.7142
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_ij4mi")
 
-[node name="MapButton" type="TextureRect" parent="MapUI"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 649.0
-offset_right = 226.0
-offset_bottom = 789.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ditpx")
-script = ExtResource("2_ydqjq")
-
 [node name="BoatStats" type="TextureRect" parent="MapUI"]
 layout_mode = 0
 offset_right = 40.0
@@ -65,35 +56,50 @@ rotation = -1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_eddq1")
 
-[node name="SailStats" type="NinePatchRect" parent="MapUI"]
+[node name="SailStats" type="TextureRect" parent="MapUI"]
 layout_mode = 0
-offset_left = 1028.0
-offset_top = 528.0
-offset_right = 1279.0
-offset_bottom = 722.0
-texture = ExtResource("7_eddq1")
+offset_left = 928.0
+offset_top = 416.0
+offset_right = 1120.0
+offset_bottom = 608.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_8qdxx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MapUI/SailStats"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 46.0
-offset_right = 85.0
-offset_bottom = 146.0
+offset_left = 58.0
+offset_top = 72.5
+offset_right = 110.0
+offset_bottom = 172.5
 
 [node name="HP" type="Label" parent="MapUI/SailStats/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "test"
 
 [node name="Guns" type="Label" parent="MapUI/SailStats/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "test"
 
 [node name="Knots" type="Label" parent="MapUI/SailStats/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "test"
 
 [node name="Morale" type="Label" parent="MapUI/SailStats/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "test"
 
-[connection signal="gui_input" from="MapUI/MapButton" to="MapUI/MapButton" method="_on_gui_input"]
+[node name="MapButton" type="TextureButton" parent="MapUI"]
+layout_mode = 0
+offset_top = 591.0
+offset_right = 64.0
+offset_bottom = 655.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_8qdxx")
+texture_hover = ExtResource("9_y81kt")
+script = ExtResource("2_ydqjq")
+
+[connection signal="pressed" from="MapUI/MapButton" to="MapUI/MapButton" method="_on_pressed"]
