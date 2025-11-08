@@ -8,5 +8,6 @@ func _ready():
 
 func _exit_tree():
 	# re-enable when UI is removed
+	$"../../PlayerBoat/AudioStreamPlayer2D".play()
+
 	get_tree().call_group("player", "enable_controls")
-	#$"../../GameUI".show_world_ui()
