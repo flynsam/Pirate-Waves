@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://det64ltelxgj8"]
+[gd_scene load_steps=11 format=3 uid="uid://det64ltelxgj8"]
 
 [ext_resource type="Script" uid="uid://drfnyqhrabudn" path="res://scenes/town/townUI.gd" id="1_ki453"]
 [ext_resource type="Texture2D" uid="uid://wdneset53t7e" path="res://assets/ui/town/TownFull.png" id="2_ki453"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c6hl6kulg70yv" path="res://assets/ui/town/ShipyardHover.png" id="7_8mv33"]
 [ext_resource type="Script" uid="uid://b70s7ifoilayp" path="res://scenes/town/shipyard_click_zone.gd" id="7_lersf"]
 [ext_resource type="Script" uid="uid://o4mp706v1hhr" path="res://scenes/town/leave_click_zone.gd" id="7_tr5gk"]
+[ext_resource type="Texture2D" uid="uid://de3fy8f751bug" path="res://assets/ui/town/LeaveGlow.png" id="10_v3pdc"]
 
 [node name="Town" type="Control"]
 layout_mode = 3
@@ -95,6 +96,7 @@ texture = ExtResource("7_8mv33")
 offset_top = 462.0
 offset_right = 1281.0
 offset_bottom = 718.0
+tooltip_text = "Set sail"
 color = Color(1, 1, 1, 0)
 script = ExtResource("7_tr5gk")
 
@@ -102,9 +104,10 @@ script = ExtResource("7_tr5gk")
 visible = false
 layout_mode = 0
 offset_top = -462.0
-offset_right = 40.0
-offset_bottom = -422.0
+offset_right = 1280.0
+offset_bottom = 258.0
 mouse_filter = 2
+texture = ExtResource("10_v3pdc")
 
 [connection signal="gui_input" from="CanvasLayer/TavernClickZone" to="CanvasLayer/TavernClickZone" method="_on_gui_input"]
 [connection signal="mouse_entered" from="CanvasLayer/TavernClickZone" to="CanvasLayer/TavernClickZone" method="_on_mouse_entered"]

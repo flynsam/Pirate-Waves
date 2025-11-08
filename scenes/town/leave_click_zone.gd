@@ -8,4 +8,6 @@ func _on_mouse_exited():
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$"../../PlayerBoat/AudioStreamPlayer2D".play()
+		$"../../GameUI".show_world_ui()
 		queue_free()
