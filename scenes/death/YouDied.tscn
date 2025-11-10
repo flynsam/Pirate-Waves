@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvxk3y20nij0a"]
+[gd_scene load_steps=6 format=3 uid="uid://bvxk3y20nij0a"]
 
+[ext_resource type="Script" uid="uid://ddqgl7yuj8cx6" path="res://scenes/death/you_died.gd" id="1_3yway"]
 [ext_resource type="Texture2D" uid="uid://bk7vbtbes03vb" path="res://assets/backgrounds/YouDied.png" id="1_rlbk7"]
 [ext_resource type="AudioStream" uid="uid://csqo0btnuclgr" path="res://assets/sfx/haunted_ghost_ship.mp3" id="2_o032v"]
 [ext_resource type="AudioStream" uid="uid://g8w5ttkhls4a" path="res://assets/sfx/rain.mp3" id="3_3yway"]
@@ -8,6 +9,7 @@
 [node name="YouDied" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_3yway")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

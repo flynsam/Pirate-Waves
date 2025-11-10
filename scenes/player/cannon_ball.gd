@@ -30,7 +30,7 @@ func _try_damage(target: Node) -> void:
 		if h and h.has_method("apply_damage") and h.get_parent().has_method("on_hit"):
 			_hit_once()
 			h.get_parent().on_hit(h.get_parent().get_parent().get_node("PlayerBoat"))
-			await _explode_then_free()
+			_explode_then_free()
 			h.apply_damage(damage, self)
 			return
 
@@ -39,10 +39,11 @@ func _try_damage(target: Node) -> void:
 			var cur: float = float(n.get("hp"))
 			n.set("hp", max(0.0, cur - float(damage)))
 			if float(n.get("hp")) == 0.0:
-				print("GO TO YOU DIED SCENE")
+				get_tree().change_scene_to_file("res://scenes/death/YouDied.tscn")
+				return
 			if n.has_method("play_hit_sound"):
 				n.play_hit_sound()
-			await _explode_then_free()
+			_explode_then_free()
 			return
 
 		n = n.get_parent()
